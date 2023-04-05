@@ -1,0 +1,122 @@
+<div class="background-radial-gradient overflow-hidden">
+  <br />
+
+  <div class="container form-group">
+    <br />
+
+    <form novalidate [formGroup]="ParticipantForm" autocomplete="on">
+
+      <!-- Name -->
+      <div class="mb-3">
+        <label><i class="fas fa-user-tie"></i>Nom</label>
+        <input type="text" formControlName="nom" class="form-control" placeholder="votre_Nom" required />
+        <div class="error" *ngIf="ParticipantForm.controls['nom'].touched && !ParticipantForm.controls['nom'].valid">
+          Le nom est requis.
+        </div>
+      </div>
+
+      <!-- Prenom -->
+      <div class="mb-3">
+        <label><i class="fas fa-user-tie"></i> Prenom</label>
+        <input type="text" formControlName="prenom" class="form-control" placeholder="votre_Prenom" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['prenom'].touched && !ParticipantForm.controls['prenom'].valid">
+          Le prenom est requis.
+        </div>
+      </div>
+
+      <!-- id -->
+      <div class="mb-3">
+        <label> <i class="fas fa-user"></i> Id</label>
+        <input type="text" formControlName="id" class="form-control" placeholder="votre_id" required />
+        <div class="error" *ngIf="ParticipantForm.controls['id'].touched && !ParticipantForm.controls['id'].valid">
+          L'id est requis.
+        </div>
+      </div>
+      <!-- CIN -->
+      <div class="mb-3">
+        <label><i class="fas fa-address-card"></i>CIN</label>
+        <input type="tel" minlength="8" maxlength="8" formControlName="CIN" class="form-control" placeholder="N_Cin"
+          required />
+        <div class="error" *ngIf="ParticipantForm.controls['CIN'].touched && !ParticipantForm.controls['CIN'].valid">
+          le CIN est requis et doit contenir 8 chiffre
+        </div>
+      </div>
+
+      <!-- telephone -->
+      <div class="mb-3">
+        <label><i class="fas fa-phone"></i>Telephone</label>
+        <input type="tel" minlength="8" maxlength="8" formControlName="telephone" class="form-control"
+          placeholder="votre_Telephone" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['telephone'].touched && !ParticipantForm.controls['telephone'].valid ">
+          le Telephone est requis et doit contenir 8 chiffre.
+        </div>
+      </div>
+      <!-- Email-->
+      <div class="form-group">
+        <label for="uname"><i class="fas fa-envelope"></i>Email</label><br />
+        <input style="caret-color: red" placeholder="Email" type="email" name="uname" class="form-control"
+          formControlName="email" [(ngModel)]="Email" required pattern="{{emailRegex}}" />
+        <div *ngIf="ParticipantForm.controls['email'].touched && ParticipantForm.controls['email'].invalid"
+          class="error">
+          <i class="fas fa-exclamation-circle"></i>
+          {{ errorMsg }}
+        </div>
+      </div>
+
+
+      <!-- Service-->
+      <div class="mb-3">
+        <label> <i class="fas fa-cog"></i>Service</label>
+        <input type="text" formControlName="Direction" class="form-control" placeholder="votre_Service" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['Direction'].touched && !ParticipantForm.controls['Direction'].valid ">
+          la service est requis .
+        </div>
+      </div>
+
+      <!-- Entreprise-->
+      <div class="mb-3">
+        <label><i class="fas fa-building"></i>
+          Entreprise</label>
+        <input type="text" formControlName="Entreprise" class="form-control" placeholder="votre_Entreprise" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['Entreprise'].touched && !ParticipantForm.controls['Entreprise'].valid ">
+          l'entreprise est requis .
+        </div>
+      </div>
+
+      <!--  votre cycle-->
+      <div class="mb-3">
+        <label> <i class="fas fa-wrench"></i>votre cycle:</label><br />
+
+        <!--  DSI-->
+        <input type="radio" value="DSI" name="cycle" id="cycle" formControlName="cycle" required />
+        <label for="cycle">DSI</label><br />
+
+        <!--  SEM-->
+        <input type="radio" value="SEM" name="cycle" id="cycle" formControlName="cycle" required />
+        <label for="cycle">SEM</label><br />
+
+        <!-- RSI-->
+        <input type="radio" value="RSI" name="cycle" id="cycle" formControlName="cycle" required />
+        <label for="cycle">RSI</label><br />
+      </div>
+
+      <div class="mb-3">
+        <button (click)="onSubmit()" class="btn btn-success" [disabled]="!ParticipantForm.valid">
+          <i class="fas fa-plus-circle"> </i> Créer
+        </button>
+        &nbsp; &nbsp;
+        <button type="reset" class="btn btn-danger">
+          <i class="fas fa-undo"></i>Annuler
+        </button>
+        &nbsp; &nbsp;
+
+
+
+      </div>
+    </form>
+  </div>
+</div>

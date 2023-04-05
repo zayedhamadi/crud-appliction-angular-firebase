@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!-- Accueil -->
+      <li class="nav-link" routerLink="/Accueil" routerLinkActive="active">
+        <i class="fas fa-home">Accueil</i>
+      </li>
+
+      <!-- List formateur -->
+      <li class="nav-link">Les Formateurs</li>
+      <!-- List Participant -->
+      <li
+        class="nav-link"
+        routerLink="/ListParticipant"
+        routerLinkActive="active"
+      >
+        Liste des Participants
+      </li>
+      <!-- Add Participant -->
+      <li class="nav-link" routerLink="/formulaire" routerLinkActive="active">
+        Ajouter un Participant
+      </li>
+    </ul>
+    <div class="d-flex">
+      <!-- dropdowns -->
+      <div class="dropdown mt-3"></div>
+    </div>
+  </div>
+</nav>

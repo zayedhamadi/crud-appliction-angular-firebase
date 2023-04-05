@@ -1,0 +1,140 @@
+<app-navbar> </app-navbar>
+
+<app-accueil></app-accueil>
+
+<br />
+<div id="content" #content>
+  <table
+    style="
+      margin: 0 auto; /* set left and right margins to auto */
+      width: 90%;
+      margin-right: -5.1rem;
+      border: 1px solid;
+    "
+  >
+    <tr>
+      <td>Date:2/18/2023</td>
+      <td style="text-align: center; border: 1px solid">
+        <h2>Feuille de Presence</h2>
+      </td>
+      <td style="border: 1px solid">Ref:FORM.FINC.03 <br />Version:02</td>
+    </tr>
+  </table>
+
+  <div style="padding-left: 18rem">
+    <h6>Entreprise Centre National de l'Informatique:</h6>
+
+    <!---->
+    N^Action:<input type="text" />
+    <input
+      type="checkbox"
+      style="transform: scale(1.5); border-width: 2px; margin-left: 160px"
+    />
+    Credit d'impot
+    <input
+      type="checkbox"
+      style="transform: scale(1.5); border-width: 2px; margin-left: 160px"
+    />
+    Droit de tirage (individuel)<input
+      type="checkbox"
+      style="transform: scale(1.5); border-width: 2px; margin-left: 160px"
+    />
+    Droit de tirage (collectif)<br /><br />
+    <label>Theme de formation:</label
+    >............................................................................................
+    <label style="margin-left: 160px">Mode de formation:</label
+    >........................................................................................<br />
+    <label>Lieu de deroulement:</label
+    >...........................................................................................
+    <label style="margin-left: 160px">Gouvernement:</label
+    >.................................................................................................
+    <br />
+    <label>Periode:du</label
+    >..............................................Au:............................................................
+    <label style="margin-left: 160px">Horaire:de</label
+    >...........................................a:........................Pause:de:...........................................a:...........................................<br />
+  </div>
+  <div class="container-fluid">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">CIN:</th>
+          <th scope="col">Nom:</th>
+          <th scope="col">Prenom:</th>
+          <th scope="col">Email:</th>
+          <th scope="col">Telephone:</th>
+
+          <th scope="col">Service:</th>
+          <th scope="col">Entreprise:</th>
+          <th scope="col">cycle:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active" *ngFor="let i of Paticipant; let j = index">
+          <td>{{ i.CIN }}</td>
+          <td>{{ i.nom }}</td>
+          <td>{{ i.prenom }}</td>
+          <td>{{ i.email }}</td>
+          <td>{{ i.telephone }}</td>
+
+          <td>{{ i.Direction }}</td>
+          <td>{{ i.Entreprise }}</td>
+          <td>{{ i.cycle }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br /><br /><br />
+  <div class="v1">
+    <table>
+      <tr>
+        <th style="text-align: center">Nom et prenom du formateur</th>
+        <th style="text-align: center">Signature</th>
+        <th style="text-align: center">cachet</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<br /><br /><br />
+
+&nbsp; &nbsp;
+
+<button
+  (click)="download()"
+  class="cssbuttons-io-button btn btn-outline-danger"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+  >
+    <path fill="none" d="M0 0h24v24H0z"></path>
+    <path
+      fill="currentColor"
+      d="M1 14.5a6.496 6.496 0 0 1 3.064-5.519 8.001 8.001 0 0 1 15.872 0 6.5 6.5 0 0 1-2.936 12L7 21c-3.356-.274-6-3.078-6-6.5zm15.848 4.487a4.5 4.5 0 0 0 2.03-8.309l-.807-.503-.12-.942a6.001 6.001 0 0 0-11.903 0l-.12.942-.805.503a4.5 4.5 0 0 0 2.029 8.309l.173.013h9.35l.173-.013zM13 12h3l-4 5-4-5h3V8h2v4z"
+    ></path>
+  </svg>
+  <span>telecharger cette page </span>
+</button>
+&nbsp; &nbsp;
+
+<button (click)="print()" class="btn btn-outline-danger">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+  >
+    <path fill="none" d="M0 0h24v24H0z" />
+    <path
+      d="M7 4h10a2 2 0 0 1 2 2v2h-2V6H7v12h10v-2h2v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 10v3h-4v-3H5V8h14v6h-4z"
+      fill="currentColor"
+    />
+  </svg>
+  Imprimer
+</button>

@@ -1,0 +1,246 @@
+<div class="background-radial-gradient overflow-hidden">
+  <br />
+
+  <div class="container form-group">
+    <br />
+
+    <form novalidate [formGroup]="ParticipantForm" autocomplete="on">
+
+      <!-- Name -->
+      <div class="mb-3">
+        <label><i class="fas fa-user-tie"></i>Nom</label>
+        <input type="text" formControlName="nom" class="form-control" placeholder="votre_Nom" required />
+        <div class="error" *ngIf="ParticipantForm.controls['nom'].touched && !ParticipantForm.controls['nom'].valid">
+          Le nom est requis.
+        </div>
+      </div>
+
+      <!-- Prenom -->
+      <div class="mb-3">
+        <label><i class="fas fa-user-tie"></i> Prenom</label>
+        <input type="text" formControlName="prenom" class="form-control" placeholder="votre_Prenom" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['prenom'].touched && !ParticipantForm.controls['prenom'].valid">
+          Le prenom est requis.
+        </div>
+      </div>
+
+      <!-- id -->
+      <div class="mb-3">
+        <label> <i class="fas fa-user"></i> Id</label>
+        <input type="text" formControlName="id" class="form-control" placeholder="votre_id" required />
+        <div class="error" *ngIf="ParticipantForm.controls['id'].touched && !ParticipantForm.controls['id'].valid">
+          L'id est requis.
+        </div>
+      </div>
+      <!-- CIN -->
+      <div class="mb-3">
+        <label><i class="fas fa-address-card"></i>CIN</label>
+        <input type="tel" minlength="8" maxlength="8" formControlName="CIN" class="form-control" placeholder="N_Cin"
+          required />
+        <div class="error" *ngIf="ParticipantForm.controls['CIN'].touched && !ParticipantForm.controls['CIN'].valid">
+          le CIN est requis et doit contenir 8 chiffre
+        </div>
+      </div>
+
+      <!-- telephone -->
+      <div class="mb-3">
+        <label><i class="fas fa-phone"></i>Telephone</label>
+        <input type="tel" minlength="8" maxlength="8" formControlName="telephone" class="form-control"
+          placeholder="votre_Telephone" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['telephone'].touched && !ParticipantForm.controls['telephone'].valid ">
+          le Telephone est requis et doit contenir 8 chiffre.
+        </div>
+      </div>
+      <!-- Email-->
+      <div class="form-group">
+        <label for="uname"><i class="fas fa-envelope"></i>Email</label><br />
+        <input style="caret-color: red" placeholder="Email" type="email" name="uname" class="form-control"
+          formControlName="email" [(ngModel)]="Email" required pattern="{{emailRegex}}" />
+        <div *ngIf="ParticipantForm.controls['email'].touched && ParticipantForm.controls['email'].invalid"
+          class="error">
+          <i class="fas fa-exclamation-circle"></i>
+          {{ errorMsg }}
+        </div>
+      </div>
+
+
+      <!-- Service-->
+      <div class="mb-3">
+        <label> <i class="fas fa-cog"></i>Service</label>
+        <input type="text" formControlName="Direction" class="form-control" placeholder="votre_Service" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['Direction'].touched && !ParticipantForm.controls['Direction'].valid ">
+          la service est requis .
+        </div>
+      </div>
+
+      <!-- Entreprise-->
+      <div class="mb-3">
+        <label><i class="fas fa-building"></i>
+          Entreprise</label>
+        <input type="text" formControlName="Entreprise" class="form-control" placeholder="votre_Entreprise" required />
+        <div class="error"
+          *ngIf="ParticipantForm.controls['Entreprise'].touched && !ParticipantForm.controls['Entreprise'].valid ">
+          l'entreprise est requis .
+        </div>
+      </div>
+
+      <!--  votre cycle-->
+      <div class="mb-3">
+        <label> <i class="fas fa-wrench"></i>votre cycle:</label><br />
+
+        <!--  DSI-->
+        <input type="radio" value="DSI" name="cycle" id="cycle" formControlName="cycle" required />
+        <label for="cycle">DSI</label><br />
+
+        <!--  SEM-->
+        <input type="radio" value="SEM" name="cycle" id="cycle" formControlName="cycle" required />
+        <label for="cycle">SEM</label><br />
+
+        <!-- RSI-->
+        <input type="radio" value="RSI" name="cycle" id="cycle" formControlName="cycle" required />
+        <label for="cycle">RSI</label><br />
+      </div>
+
+      <div class="mb-3">
+        <button (click)="submit()" class="btn btn-success" [disabled]="!ParticipantForm.valid">
+          <i class="fas fa-plus-circle"> </i> Créer
+        </button>
+        &nbsp; &nbsp;
+        <button type="reset" class="btn btn-danger">
+          <i class="fas fa-undo"></i>Annuler
+        </button>
+        &nbsp; &nbsp;
+        <button class="btn btn-secondary" routerLink="" routerLinkActive="Activate ">
+          <i class="fa fa-backward" aria-hidden="true"></i>
+          Retourner
+        </button>
+
+        <button style="position: relative; left: 85%; padding-bottom: 50 px" (click)="map()">
+          <i class="fas fa-map-marker-alt"></i>
+          CNI
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!--footer-->
+<footer style="
+    color: #d9d9d9;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  ">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <div class="main-content">
+    <div class="left box">
+      <h2>À propos de nous</h2>
+      <div class="content">
+        <p>
+          Institué le 30 Décembre 1975, le Centre National de l’Informatique est
+          un établissement public à caractère non administratif doté de la
+          personnalité civile et de l’autonomie financière. Le CNI est un
+          organisme placé sous la tutelle du Ministre des Technologies de la
+          Communication, et opérant dans les domaines du secteur de
+          l’informatique et des technologies de la communication et certifié ISO
+          9001version 2015.
+        </p>
+        <div class="social">
+          <a href="#"><span class="fab fa-facebook-f"></span></a>
+          <a href="https://twitter.com/CNITUNISIA"><span class="fab fa-twitter"></span></a>
+          <a href="https://plus.google.com/u/0/107447672107753309751/posts"><span
+              class="fab fa-google-plus-square"></span></a>
+          <a href="https://www.linkedin.com/in/cnitunisia/"><span class="fab fa-linkedin"></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="center box">
+      <h2>Adresse</h2>
+      <div class="content">
+        <div class="home">
+          <span class="fas fa-home"></span>
+          <span class="text"> Centre National de l’Informatique</span>
+        </div>
+        <div class="place">
+          <span class="fas fa-map-marker-alt"></span>
+          <span class="text">17, rue Belhassen Ben Chaabane, 1005 El Omrane, Tunis
+            Tunisie.</span>
+        </div>
+        <div class="fax">
+          <span class="fas fa-fax"></span>
+          <span class="text">+ 216 71 781 862</span>
+        </div>
+        <div class="phone">
+          <span class="fas fa-phone"></span>
+          <span class="text"> + 216 71 783 055</span>
+        </div>
+        <div class="website">
+          <span class="fas fa-globe"></span>
+          <span class="text"> http://www.cni.tn</span>
+        </div>
+        <div class="email">
+          <span class="fas fa-envelope"></span>
+          <span class="text">webcni@cni.tn</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right box">
+      <h2>Contactez-nous</h2>
+      <div class="content">
+        <form action="#">
+          <div class="email">
+            <div class="text">Email</div>
+            <input type="email" required />
+          </div>
+          <div class="msg">
+            <div class="text">Message</div>
+            <textarea rows="2" cols="30" required></textarea>
+          </div>
+          <div class="btn">
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn" style="
+      position: relative;
+      left: 97%;
+      padding-bottom: 50 px;
+      width: 30px;
+      height: 50px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      outline: 2px solid rgb(105, 127, 255);
+      box-shadow: 0px 0px 10px rgb(105, 127, 255);
+      position: relative;
+    " (click)="scrollToTop()">
+    <div class="scroll" style="
+        width: 5px;
+        height: 10px;
+        border-radius: 10px;
+        background-color: rgb(105, 127, 255);
+        box-shadow: 0px 0px 10px rgb(105, 127, 255);
+        animation: scroll_4013 2s linear infinite;
+        transform: translateY(40%);
+      "></div>
+  </div>
+  <div style="
+      text-align: center;
+      top: -20px;
+      padding-bottom: 50 px;
+      position: relative;
+    ">
+    <span class="far fa-copyright"></span>
+    <span>
+      Copyright © 2023 Centre National de l'Informatique tous droits
+      réservés</span>
+  </div>
+</footer>

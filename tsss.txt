@@ -1,0 +1,38 @@
+public ParticipantForm: FormGroup;
+  
+  form: any;
+  constructor(
+    private route: Router,
+    private FormBuilder: FormBuilder,
+    private ParticipantService: AuthService
+  ) {
+    this.ParticipantForm = this.FormBuilder.group({
+      id: [''],
+      nom: [''],
+      prenom: [''],
+      CIN: [''],
+      Direction: [''],
+      Entreprise: [''],
+      telephone: [''],
+      email: [''],
+      cycle: [''],
+    });
+  }
+
+  ngOnInit(): void {}
+  submit() {
+    this.ParticipantService.CreateParticipant(this.ParticipantForm.value);
+    alert(' merci de participer');
+  }
+  map() {
+    window.open(
+      "https://www.google.com/maps/place/Centre+National+de+l'Informatique+(CNI)+-+المركز+الوطني+للإعلامية%E2%80%AD/@36.8126789,10.1659944,324m/data=!3m1!1e3!4m6!3m5!1s0x12fd3386aae7a5f9:0x48d6f4f6afb7d57!8m2!3d36.8126965!4d10.1658505!16s%2Fg%2F1pzvrmj9c"
+    );
+  }
+  scrollToTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }

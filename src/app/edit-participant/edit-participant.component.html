@@ -1,0 +1,103 @@
+<app-header></app-header>
+<div class="container">
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="editform">
+    <!-- Name -->
+    <div class="mb-3">
+      <label>Nom</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="full name"
+        required
+      />
+    </div>
+    <!-- Name -->
+    <div class="mb-3">
+      <label>Prenom</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="full name"
+        required
+      />
+    </div>
+    <!-- CIN -->
+    <div class="mb-3">
+      <label>CIN</label>
+      <input
+        type="number"
+        formControlName="CIN"
+        class="form-control"
+        placeholder="N_Cin"
+        required
+      />
+    </div>
+
+    <!-- telephone -->
+    <div class="mb-3">
+      <label>Telephone</label>
+      <input
+        type="tel"
+        formControlName="tel"
+        class="form-control"
+        placeholder="Telephone"
+        required
+      />
+    </div>
+    <!-- Email-->
+    <div class="mb-3">
+      <label> Email</label>
+      <input
+        type="text"
+        formControlName="CIN"
+        class="form-control"
+        placeholder=" Email"
+        required
+      />
+    </div>
+
+    <!-- Service-->
+    <div class="mb-3">
+      <label> Service</label>
+      <input
+        type="text"
+        formControlName="Service"
+        class="form-control"
+        placeholder=" Service"
+        required
+      />
+    </div>
+
+    <!-- Entreprise-->
+    <div class="mb-3">
+      <label> Entreprise</label>
+      <input
+        type="text"
+        formControlName="Entreprise"
+        class="form-control"
+        placeholder=" Entreprise"
+        required
+      />
+    </div>
+
+    <!--  votre cycle-->
+    <div class="mb-3">
+      <label for="votre cycle"> votre cycle:</label><br />
+      <select
+        class="form-control form-select form-select-lg mb-3"
+        formControlName="Participant_course"
+        placeholder="cycle"
+      >
+        <option value="DSI" selected>DSI</option>
+        <option value="RSI">RSI</option>
+        <option value="SEM">SEM</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="reset" class="btn btn-danger">reset</button>
+    </div>
+  </form>
+</div>

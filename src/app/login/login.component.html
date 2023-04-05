@@ -1,0 +1,328 @@
+<!-- Section: Design Block -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+</style>
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <h2 class="my-5 display-5 fw-bold ls-tight">
+          <div class="a">Formulaire</div>
+
+          <span> pour les participants:</span>
+        </h2>
+        <div class="login-box">
+          <form>
+            <a routerLink="formaulaire_Participant" routerLinkActive="Activate ">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <i class="fas fa-hand-pointer"> </i>Cliquez ici
+            </a>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <form>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <!-- Last_Name --><br />
+                <div class="form-group">
+                  <br />
+                  <label for="uname"><i class="fas fa-user-tie"></i>Nom </label>
+                  <br />
+
+                  <input style="caret-color: red" placeholder="votre_Nom " type="text" name="uname" class="form-control"
+                    required [(ngModel)]="Last_Name" />
+                </div>
+              </div>
+
+              <br />
+              <!-- First Name -->
+
+              <div class="form-group">
+                <label for="uname"> <i class="fas fa-user-tie"></i>Prenom</label><br />
+                <input style="caret-color: red" placeholder="votre_Prenom" type="text" name="uname" class="form-control"
+                  [(ngModel)]="Username" required />
+                <br />
+                <!-- Email input -->
+                <div class="form-group">
+                  <label for="uname"><i class="fas fa-envelope"></i>Email</label><br />
+                  <input style="caret-color: red" placeholder="Email" type="email" name="uname" class="form-control"
+                    [(ngModel)]="Email" required pattern="{{emailRegex}}" />
+                </div>
+
+                <!-- Password input -->
+                <br />
+                <div class="form-group">
+                  <label for="pword"><i class="fas fa-lock"></i>Mot de passe</label>
+                  <br />
+                  <input (click)="encrypt()" style="caret-color: red" [type]="changetype ? 'password' : 'text'"
+                    placeholder="Mot de passe" name="pword" class="form-control" [(ngModel)]="Password" minlength="6"
+                    #passwordInput="ngModel" required />
+                  <span class="eyeicon" (click)="view()"><i
+                      [ngClass]="visible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i></span>
+                </div>
+              </div>
+              <br />
+              <!-- passwordInput.invalid-->
+              <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
+                <i class="fas fa-exclamation-circle"></i>
+                Le mot de passe doit contenir au moins 6 caractères
+              </div>
+              <br />
+              <!-- errorMsg-->
+              <div *ngIf="errorMsg" class="error">
+                <i class="fas fa-exclamation-circle"></i>
+                {{ errorMsg }}
+              </div>
+              <br />
+              <!-- Se connecter -->
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" (click)="login()" class="btn btn-success">
+                  <i class="fas fa-sign-out-alt"> </i>Se connecter
+                </button>
+              </div>
+              <br />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+  }
+
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+  }
+
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+
+    50%,
+    100% {
+      left: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+  }
+
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+
+    50%,
+    100% {
+      top: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+
+    50%,
+    100% {
+      right: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+  }
+
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+
+    50%,
+    100% {
+      bottom: 100%;
+    }
+  }
+</style>
+<!--footer-->
+<footer style="
+    color: #d9d9d9;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #d9d9d9;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  ">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <div class="main-content">
+    <div class="left box">
+      <h2>À propos de nous</h2>
+      <div class="content">
+        <p>
+          Institué le 30 Décembre 1975, le Centre National de l’Informatique est
+          un établissement public à caractère non administratif doté de la
+          personnalité civile et de l’autonomie financière. Le CNI est un
+          organisme placé sous la tutelle du Ministre des Technologies de la
+          Communication, et opérant dans les domaines du secteur de
+          l’informatique et des technologies de la communication et certifié ISO
+          9001version 2015.
+        </p>
+        <div class="social">
+          <a href="#"><span class="fab fa-facebook-f"></span></a>
+          <a href="https://twitter.com/CNITUNISIA"><span class="fab fa-twitter"></span></a>
+          <a href="https://plus.google.com/u/0/107447672107753309751/posts"><span
+              class="fab fa-google-plus-square"></span></a>
+          <a href="https://www.linkedin.com/in/cnitunisia/"><span class="fab fa-linkedin"></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="center box">
+      <h2>Adresse</h2>
+      <div class="content">
+        <div class="home">
+          <span class="fas fa-home"></span>
+          <span class="text"> Centre National de l’Informatique</span>
+        </div>
+        <div class="place">
+          <span class="fas fa-map-marker-alt"></span>
+          <span class="text">17, rue Belhassen Ben Chaabane, 1005 El Omrane, Tunis
+            Tunisie.</span>
+        </div>
+        <div class="fax">
+          <span class="fas fa-fax"></span>
+          <span class="text">+ 216 71 781 862</span>
+        </div>
+        <div class="phone">
+          <span class="fas fa-phone"></span>
+          <span class="text"> + 216 71 783 055</span>
+        </div>
+        <div class="website">
+          <span class="fas fa-globe"></span>
+          <span class="text"> http://www.cni.tn</span>
+        </div>
+        <div class="email">
+          <span class="fas fa-envelope"></span>
+          <span class="text">webcni@cni.tn</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right box">
+      <h2>Contactez-nous</h2>
+      <div class="content">
+        <form action="#">
+          <div class="email">
+            <div class="text">Email</div>
+            <input type="email" required />
+          </div>
+          <div class="msg">
+            <div class="text">Message</div>
+            <textarea rows="2" cols="30" required></textarea>
+          </div>
+          <div class="btn">
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn" style="
+      position: relative;
+      left: 97%;
+      padding-bottom: 50 px;
+      width: 30px;
+      height: 50px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      outline: 2px solid rgb(105, 127, 255);
+      box-shadow: 0px 0px 10px rgb(105, 127, 255);
+      position: relative;
+    " (click)="scrollToTop()">
+    <div class="scroll" style="
+        width: 5px;
+        height: 10px;
+        border-radius: 10px;
+        background-color: rgb(105, 127, 255);
+        box-shadow: 0px 0px 10px rgb(105, 127, 255);
+        animation: scroll_4013 2s linear infinite;
+        transform: translateY(40%);
+      "></div>
+  </div>
+  <div style="
+      text-align: center;
+      top: -27px;
+      padding-bottom: 50 px;
+      position: relative;
+    ">
+    <span class="far fa-copyright"></span>
+    <span>
+      Copyright © 2023Centre National de l'Informatique tous droits
+      réservés</span>
+  </div>
+
+</footer>

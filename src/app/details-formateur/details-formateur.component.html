@@ -1,0 +1,44 @@
+<div class="container" style="padding-left: 7rem">
+  <ul>
+    <h2 [title]="hero.name + ' details'">
+      <i class="fas fa-user" style="font-size: 30px"></i>
+      {{ hero.name }}
+    </h2>
+    <li><input [(ngModel)]="hero.name" class="btn btn-outline-info" /></li>
+    <br />
+    <!--id-->
+
+    <li>
+      <i
+        class="fa fa-id-badge p-2"
+        aria-hidden="true"
+        style="font-size: 19px"
+      ></i>
+      id:{{ hero.id }}
+    </li>
+
+    <!--Email-->
+    <li>
+      <i
+        class="fa fa-envelope p-2"
+        style="font-size: 19px"
+        aria-hidden="true"
+      ></i
+      >Email:{{ hero.email }}
+    </li>
+
+    <!--Telephone-->
+    <li>
+      <i
+        class="fa fa-phone-square p-2"
+        style="font-size: 19px"
+        aria-hidden="true"
+      ></i
+      >Telephone:{{ hero.telephone }}
+    </li>
+
+    <button routerLink="/Presence" class="btn btn-outline-warning">
+      voir plus
+    </button>
+  </ul>
+</div>

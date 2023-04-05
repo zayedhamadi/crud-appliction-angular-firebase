@@ -1,0 +1,32 @@
+<app-navbar> </app-navbar>
+
+<app-accueil></app-accueil>
+<br />
+<br />
+<div style="padding-left: 46rem">
+  <h3 style="
+      position: relative;
+      left: 10%;
+      padding-bottom: 50 px;
+      color: bisque;
+      font-family: 'Courier New', Courier, monospace;
+    ">
+    Liste des formateurs:
+  </h3>
+</div>
+<br />
+<div class="container-fluid">
+  <ul>
+    <div (click)="scrollToDOWN()">
+      <li *ngFor="let i of Heroes; let j = index">
+        <button class="form-control form-group btn btn-outline-secondary" (click)="click(i)"
+          title=" cliquez pour connaître les détails">
+          {{ j + 1 }} :{{ i.name }}
+        </button>
+      </li>
+    </div>
+  </ul>
+</div>
+<br><br>
+<app-details-formateur [hero]="clickHero"> </app-details-formateur>
+<br />

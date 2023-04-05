@@ -1,0 +1,95 @@
+table,
+td {
+  border: 1px solid;
+}
+table {
+  margin: 0 auto; /* set left and right margins to auto */
+  width: 90%;
+  margin-right: -5.1rem;
+}
+/* set left and right margins to auto */
+.v1 table {
+  margin-right: 35rem;
+  width: 50%;
+  border: 1px solid black;
+}
+.v1 table,
+td,
+th {
+  border: 1px solid black;
+}
+.v1 td {
+  height: 70px;
+}
+.v1 th {
+  height: 50px;
+}
+.v1 td {
+  height: 5 0px;
+}
+@media print {
+  app-navbar,
+  v5,
+  app-accueil,
+  button {
+    display: none;
+  }
+}
+button {
+  font-size: 1rem;
+
+  float: right;
+  margin-left: 10px;
+}
+.button-container {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cssbuttons-io-button {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 0.8em 1.5em 0.8em 1.2em;
+  color: white;
+  background: #dc3545; /* red color */
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #c82333be; /* darker red color */
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+}
+
+.cssbuttons-io-button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #c82333be; /* darker red color */
+}
+
+.cssbuttons-io-button:active {
+  box-shadow: 0 0.3em 1em -0.5em #c82333be; /* darker red color */
+}
+
+button {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 0.8em 1.5em 0.8em 1.2em;
+  color: white;
+  background: #dc3545; /* red color */
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #c82333be; /* darker red color */
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+}
+
+button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #c82333be; /* darker red color */
+}
+
+button:active {
+  box-shadow: 0 0.3em 1em -0.5em #c82333be; /* darker red color */
+}

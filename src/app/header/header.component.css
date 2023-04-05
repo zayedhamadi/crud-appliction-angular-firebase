@@ -1,0 +1,9 @@
+.nav-brand {
+  color: darkgoldenrod;
+}
+.nav-link {
+  font-weight: bold;
+  font-family: "Creepster", Cursive;
+  margin-right: 40px;
+  cursor: pointer;
+}
